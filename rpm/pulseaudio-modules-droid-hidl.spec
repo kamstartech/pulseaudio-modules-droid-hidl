@@ -5,12 +5,12 @@
 Name:       pulseaudio-modules-droid-hidl
 
 Summary:    PulseAudio Droid HIDL module
-Version:    1.5.1
+Version:    1.5.2
 Release:    1
 License:    LGPLv2+
 URL:        https://github.com/mer-hybris/pulseaudio-modules-droid-hidl
 Source0:    %{name}-%{version}.tar.bz2
-Requires:   pulseaudio >= %{pulseversion}
+Requires:   pulseaudio >= %{pulsemajorminor}
 Requires:   audiosystem-passthrough >= 1.0.0
 Requires:   pulseaudio-modules-droid
 BuildRequires:  libtool-ltdl-devel
@@ -28,6 +28,7 @@ PulseAudio Droid HIDL module.
 
 %build
 echo "%{version}" > .tarball-version
+export CCACHE_DISABLE=1
 %meson
 %meson_build
 
